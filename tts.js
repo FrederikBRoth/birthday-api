@@ -4,10 +4,9 @@ require('dotenv').config()
 const fs = require('fs');
 const util = require('util');
 
-
 const config = {
   projectId: "stone-passage-255117",
-  keyFilename: test
+  keyFilename: "keyfile.json"
 }
 const client = new textToSpeech.TextToSpeechClient(config)
 async function getNameAudio(name, id) {
