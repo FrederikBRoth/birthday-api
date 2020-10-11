@@ -16,13 +16,15 @@ app.use(session({
 }))
 app.use("/api/song", express.static('Output'));
 
-app.post("/api", async (req, res) => {
+app.post("/api/post", async (req, res) => {
     console.log(req.sessionID)
     console.log(req.body)
     await assempleBirthdayGreeting(req.body.name, req.sessionID)
     res.send(req.sessionID + ".mp3")
 })
-
+app.get("/api", (req, res) => {
+    res.send("test")
+})
 app.listen(3000, () => {
     console.log("Server is up!")
 })
