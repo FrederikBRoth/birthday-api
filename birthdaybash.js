@@ -6,14 +6,13 @@ const intformat = require('biguint-format')
 const fs = require("fs");
 
 
-async function assempleBirthdayGreeting(name) {
+async function assempleBirthdayGreeting(name, sessionID) {
     const id = intformat(flakeIdGen.next(), "dec")
     await getNameAudio(name, id).then(async () => {
         console.log("yahoo")
-        await create(name, id).then(() => {
+        await create(id, sessionID).then(() => {
             console.log("aiwdhiuawdhiuawd")
         });
     })
 }
-assempleBirthdayGreeting("Fred")
-assempleBirthdayGreeting("Soren")
+module.exports.assempleBirthdayGreeting = assempleBirthdayGreeting

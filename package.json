@@ -2,9 +2,9 @@
   "name": "rats-birthday",
   "version": "1.0.0",
   "description": "",
-  "main": "tts.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,9 +13,13 @@
     "@google-cloud/text-to-speech": "^3.1.1",
     "biguint-format": "^1.0.2",
     "child-process-promise": "^2.2.1",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "ffprobe": "^1.1.2",
     "ffprobe-static": "^3.0.0",
-    "flake-idgen": "^1.4.0"
+    "flake-idgen": "^1.4.0",
+    "nodemon": "^2.0.4"
   }
 }
