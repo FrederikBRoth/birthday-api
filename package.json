@@ -13,6 +13,7 @@
     "@google-cloud/text-to-speech": "^3.1.1",
     "biguint-format": "^1.0.2",
     "child-process-promise": "^2.2.1",
+    "dotenv": "^8.2.0",
     "ffprobe": "^1.1.2",
     "ffprobe-static": "^3.0.0",
     "flake-idgen": "^1.4.0"
