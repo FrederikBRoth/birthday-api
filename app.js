@@ -13,7 +13,6 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 60000, secure: false },
-    autosave: true
 }))
 app.use("/api/song", express.static('Output'));
 
@@ -24,6 +23,6 @@ app.post("/api", async (req, res) => {
     res.send(req.sessionID + ".mp3")
 })
 
-app.listen(5000, () => {
+app.listen(3000, () => {
     console.log("Server is up!")
 })
