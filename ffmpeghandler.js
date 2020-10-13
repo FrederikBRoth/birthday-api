@@ -13,13 +13,13 @@ const input = './TempFiles/input.mp3'
 const silenceoutput = './TempFiles/silencedFile.mp3'
 const output = "./TempFiles/done.mp3"
 // Creates a client
-async function create(id, sessionID) {
+async function create(id, sessionID, name) {
     return new Promise((resolve, reject) => {
         silenceAudio(id).then(() => {
             ffprobe(("./TempFiles/s" + id + ".mp3"), { path: ffpropePath }, function (err, info) {
                 if (err) return console.log(err);
                 normalizeTempo(info, id).then(() => {
-                    combineAudioTracks(id, sessionID).then(() => {
+                    combineAudioTracks(id, sessionID, name).then(() => {
                         cleanupTempFiles(id).then(() => {
                             resolve()
                         })
@@ -61,10 +61,9 @@ async function combineAudioTracks(id, sessionID) {
             '-i', ("./TempFiles/d" + id + ".mp3"),
             '-i', ("./TempFiles/d" + id + ".mp3"),
             '-i', ("./TempFiles/d" + id + ".mp3"),
-            '-filter_complex', audioDelayStr, ("./Output/" + sessionID + ".mp3"), "-y"])
+            '-filter_complex', audioDelayStr, ("./Output/" + name + sessionID + ".mp3"), "-y"])
 }
 async function cleanupTempFiles(id) {
-
     const files = ["./TempFiles/" + id + ".mp3",
     "./TempFiles/d" + id + ".mp3",
     "./TempFiles/s" + id + ".mp3"];

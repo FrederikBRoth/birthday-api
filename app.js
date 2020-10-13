@@ -12,13 +12,13 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 60000*60*8, secure: false }
 }))
-app.use("/api/song", express.static('Output', {maxAge: "0"}));
+app.use("/api/song", express.static('Output'));
 
 app.post("/api/post", async (req, res) => {
     console.log(req.sessionID)
     console.log(req.body)
     await assempleBirthdayGreeting(req.body.name, req.sessionID)
-    res.send(req.sessionID + ".mp3")
+    res.send(req.body.name + req.sessionID + ".mp3")
 })
 app.get("/api", (req, res) => {
     res.send("test")

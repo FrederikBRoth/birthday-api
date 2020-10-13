@@ -10,7 +10,7 @@ async function assempleBirthdayGreeting(name, sessionID) {
     const id = intformat(flakeIdGen.next(), "dec")
     await getNameAudio(name, id).then(async () => {
         console.log("yahoo")
-        await create(id, sessionID).then(() => {
+        await create(id, sessionID, name).then(() => {
             console.log("aiwdhiuawdhiuawd")
         });
     })
