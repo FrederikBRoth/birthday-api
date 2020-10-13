@@ -4,10 +4,6 @@ const cors = require("cors")
 const session = require("express-session")
 
 require('dotenv').config()
-
-let RedisStore = require('connect-redis')(session)
-let redisClient = redis.createClient("birthday_storage")
-
 app.use(cors())
 app.use(express.json())
 app.use(session({
