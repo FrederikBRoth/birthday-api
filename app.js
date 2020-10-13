@@ -12,7 +12,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 60000*60*8, secure: false }
 }))
-app.use("/api/song", express.static('Output'));
+app.use("/api/song", express.static('Output', {maxAge: "0"}));
 
 app.post("/api/post", async (req, res) => {
     console.log(req.sessionID)
