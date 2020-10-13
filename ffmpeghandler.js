@@ -47,7 +47,7 @@ async function normalizeTempo(info, id) {
 }
 
 
-async function combineAudioTracks(id, sessionID) {
+async function combineAudioTracks(id, sessionID, name) {
     const audioDelayStr = "[1]adelay=8243[file_2];[2]adelay=12347[file_3];[3]adelay=28752[file_4];[4]adelay=32860[file_5];[5]adelay=36980[file_6];[6]adelay=53363[file_7];[7]adelay=57514[file_8];[8]adelay=61577[file_9]; \
             [0][file_2][file_3][file_4][file_5][file_6][file_7][file_8][file_9]amix=9:dropout_transition=1000, volume=10.0"
 
