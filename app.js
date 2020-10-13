@@ -8,13 +8,13 @@ const { assempleBirthdayGreeting } = require("./birthdaybash")
 require('dotenv').config()
 
 let RedisStore = require('connect-redis')(session)
-let redisClient = redis.createClient()
+let redisClient = redis.createClient("birthday_storage:6379")
 
 app.use(cors())
 app.use(express.json())
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     cookie: { maxAge: 60000*60*8, secure: false },
     store: new RedisStore({client: redisClient})
@@ -30,6 +30,6 @@ app.post("/api/post", async (req, res) => {
 app.get("/api", (req, res) => {
     res.send("test")
 })
-app.listen(3000, () => {
+app.listen(5000, () => {
     console.log("Server is up!")
 })
