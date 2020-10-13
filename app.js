@@ -8,7 +8,7 @@ const { assempleBirthdayGreeting } = require("./birthdaybash")
 require('dotenv').config()
 
 let RedisStore = require('connect-redis')(session)
-let redisClient = redis.createClient("birthday_storage:6379")
+let redisClient = redis.createClient("birthday_storage")
 
 app.use(cors())
 app.use(express.json())
