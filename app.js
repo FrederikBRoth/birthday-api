@@ -2,8 +2,6 @@ const express = require("express")
 const app = express()
 const cors = require("cors")
 const session = require("express-session")
-const redis = require('redis')
-const { assempleBirthdayGreeting } = require("./birthdaybash")
 
 require('dotenv').config()
 
@@ -16,8 +14,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
-    cookie: { maxAge: 60000*60*8, secure: false },
-    store: new RedisStore({client: redisClient})
+    cookie: { maxAge: 60000*60*8, secure: false }
 }))
 app.use("/api/song", express.static('Output'));
 
