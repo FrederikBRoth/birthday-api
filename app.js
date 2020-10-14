@@ -14,7 +14,7 @@ app.use(session({
 }))
 app.use("/api/song", express.static('Output'));
 
-app.get("/api/download", (req, res) => {
+app.post("/api/download", (req, res) => {
     const file = `${__dirname}/Output/${req.body.fileName}`
     res.download(file)
 })
